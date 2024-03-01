@@ -22,7 +22,7 @@ export class UserController {
     private readonly userService: UserService,
     private readonly authService: AuthService,
   ) {
-    this.delegate = new Delegate();
+    this.delegate = new Delegate(userService, authService);
   }
 
   @Get('user/:id')

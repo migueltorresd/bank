@@ -1,3 +1,5 @@
+import { IUserService } from 'src/domain/services';
+import { IAuthService } from 'src/domain/services/auth.service';
 import { IUseCase } from '../interface';
 import {
   CreateUserUseCase,
@@ -9,10 +11,12 @@ import {
 import { Observable } from 'rxjs';
 
 export class Delegate implements IUseCase {
-  private delegate: IUseCase;
-  userService: any;
-  authService: any;
+  constructor(
+    private readonly userService: IUserService,
+    private readonly authService: IAuthService,
+  ) {}
 
+  private delegate: IUseCase;
   execute<Response>(...args: any[]): Observable<Response> {
     return this.delegate.execute(...args);
   }
