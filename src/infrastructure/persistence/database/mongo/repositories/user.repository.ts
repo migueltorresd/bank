@@ -28,7 +28,7 @@ export class UserRepository implements IBaseRepository<UserMongo> {
     return from(this.repository.find().exec());
   }
 
-  update(id: string, updates: Partial<UserMongo>): Observable<UserMongo> {
-    return from(this.repository.findByIdAndUpdate(id, updates, { new: true }));
+  update(_id: string, entity: UserMongo): Observable<UserMongo> {
+    return from(this.repository.findByIdAndUpdate(_id, entity, { new: true }));
   }
 }

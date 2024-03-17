@@ -20,8 +20,8 @@ export class UserMongoService implements IUserService {
     return this.userRepository.delete(id);
   }
 
-  update(id: string, updates: Partial<UserMongo>): Observable<UserMongo> {
-    return this.userRepository.update(id, updates);
+  update(id: string, entity: UserMongo): Observable<UserMongo> {
+    return this.userRepository.update(id, entity);
   }
 
   findAll(): Observable<UserMongo[]> {

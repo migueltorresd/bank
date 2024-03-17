@@ -1,34 +1,22 @@
-import { NotFoundException } from '@nestjs/common';
+import { IUpdateUserDto } from 'src/domain/dto/update-user.dto';
 import { IUseCase } from '../../../application/interface';
 import { UserDomainModel } from '../../../domain/models';
 import { IUserService } from '../../../domain/services';
-import { Observable, switchMap, catchError } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 
 export class UpdateUserUseCase implements IUseCase {
   constructor(private readonly service: IUserService) {}
 
   execute(
     _id: string,
-    updatedUserData: UserDomainModel,
+    user: IUpdateUserDto, // Usamos el DTO para los datos actualizados
   ): Observable<UserDomainModel> {
-    // Buscar el usuario por su ID
     return this.service.findById(_id).pipe(
-      switchMap((existingUser) => {
-        // Verificar si el usuario existe
-        if (!existingUser) {
-          // Lanzar una excepción si el usuario no existe
-          throw new NotFoundException('Usuario no encontrado');
-        }
-
-        // Fusionar los datos existentes con los datos actualizados
-        const updatedUser = { ...existingUser, ...updatedUserData };
-
-        // Llamar al método de actualización en el servicio de usuario
-        return this.service.update(_id, updatedUser);
-      }),
-      catchError((error) => {
-        // Manejar cualquier error específico si es necesario
-        throw error;
+      switchMap((entity: UserDomainModel) => {
+        const update = new UserDomainModel();
+        update.name = user.name || entity.name;
+        update.photoUrl = user.photoUrl || entity.photoUrl;
+        return this.service.update(_id, update);
       }),
     );
   }
