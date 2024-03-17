@@ -8,11 +8,8 @@ import { JwtModule } from '@nestjs/jwt';
 import { JWTConstants } from './infrastructure/persistence/database/mongo/services/secret';
 
 /**
- * main module
- *
- * @export
- * @class AppModule
- * @typedef {AppModule}
+ * Módulo principal de la aplicación.
+ * Este módulo es el punto de entrada principal de la aplicación Nest.js.
  */
 @Module({
   imports: [

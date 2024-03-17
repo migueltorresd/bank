@@ -1,39 +1,37 @@
 /**
- * interface for user domain model
- *
+ * Interfaz que define el modelo de dominio de un usuario.
  * @export
  * @interface IUserDomainModel
  * @typedef {IUserDomainModel}
  */
 export interface IUserDomainModel {
   /**
-   * id of user
-   *
-   * @type {?string} _id - id of user
+   * ID del usuario.
+   * @type {?string} _id - ID del usuario.
    */
   _id?: string;
+
   /**
-   * name of user
-   *
-   * @type {string} name
+   * Nombre del usuario.
+   * @type {string} name - Nombre del usuario.
    */
   name: string;
+
   /**
-   * email of user
-   *
-   * @type {string} email
+   * Correo electrónico del usuario.
+   * @type {string} email - Correo electrónico del usuario.
    */
   email: string;
+
   /**
-   * photo url of user
-   *
-   * @type {string} photoUrl
+   * URL de la foto del usuario.
+   * @type {string} photoUrl - URL de la foto del usuario.
    */
   photoUrl: string;
+
   /**
-   * google id of user
-   *
-   * @type {string} googleId
+   * ID de Google del usuario.
+   * @type {string} googleId - ID de Google del usuario.
    */
   googleId: string;
 }

@@ -1,18 +1,16 @@
 import { Observable } from 'rxjs';
 
 /**
- * interface for use cases
- *
+ * Interfaz que define un caso de uso.
  * @export
  * @interface IUseCase
  * @typedef {IUseCase}
  */
 export interface IUseCase {
   /**
-   * execute use case
-   *
-   * @param {...any[]} args
-   * @returns {Observable<any>}
+   * Ejecuta el caso de uso.
+   * @param {...any[]} args Los argumentos necesarios para ejecutar el caso de uso.
+   * @returns {Observable<any>} Un observable que emite el resultado del caso de uso.
    */
   execute(...args: any[]): Observable<any>;
 }

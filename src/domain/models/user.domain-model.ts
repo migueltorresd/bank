@@ -1,42 +1,37 @@
 import { IUserDomainModel } from './interfaces/user.domain-model.interface';
 
 /**
- * class for user domain model
- *
- * @export
- * @class UserDomainModel
- * @typedef {UserDomainModel}
+ * Clase que representa el modelo de dominio de un usuario.
  * @implements {IUserDomainModel}
  */
 export class UserDomainModel implements IUserDomainModel {
   /**
-   * id of user
-   *
-   * @type {?string} _id - id of user
+   * ID del usuario.
+   * @type {?string}
    */
   _id?: string;
+
   /**
-   * name of user
-   *
-   * @type {string} name
+   * Nombre del usuario.
+   * @type {string}
    */
   name: string;
+
   /**
-   * email of user
-   *
-   * @type {string} email
+   * Correo electrónico del usuario.
+   * @type {string}
    */
   email: string;
+
   /**
-   * photo url of user
-   *
-   * @type {string} photoUrl
+   * URL de la foto del usuario.
+   * @type {string}
    */
   photoUrl: string;
+
   /**
-   * google id of user
-   *
-   * @type {string} googleId
+   * ID de Google del usuario.
+   * @type {string}
    */
   googleId: string;
 }

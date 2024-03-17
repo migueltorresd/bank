@@ -3,11 +3,8 @@ import { MongoModule } from './persistence/database/mongo/mongo.module';
 import { UserService } from './services/user.service';
 
 /**
- * module for the infrastructure
- *
- * @export
- * @class InfrastructureModule
- * @typedef {InfrastructureModule}
+ * Módulo para la infraestructura de la aplicación.
+ * Este módulo proporciona servicios y configuraciones relacionadas con la infraestructura.
  */
 @Module({
   imports: [MongoModule],

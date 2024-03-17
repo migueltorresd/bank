@@ -6,34 +6,33 @@ import {
 } from '@nestjs/mongoose';
 
 /**
- * mongoose config service
+ * Servicio de configuración para Mongoose.
  *
  * @export
  * @class MongooseConfigService
- * @typedef {MongooseConfigService}
  * @implements {MongooseOptionsFactory}
  */
 @Injectable()
 export class MongooseConfigService implements MongooseOptionsFactory {
   /**
-   * Creates an instance of MongooseConfigService.
+   * Crea una instancia de MongooseConfigService.
    *
    * @constructor
-   * @param {ConfigService} configService config service
+   * @param {ConfigService} configService - Servicio de configuración para acceder a las variables de entorno.
    */
   constructor(private readonly configService: ConfigService) {}
 
   /**
-   * url
+   * URL de la base de datos MongoDB.
    *
-   * @type {string} url
+   * @type {string}
    */
-  url = this.configService.get<string>('MONGO_URL');
+  private readonly url = this.configService.get<string>('MONGO_URL');
 
   /**
-   * database name
+   * Crea las opciones de configuración para Mongoose.
    *
-   * @returns {MongooseModuleOptions} mongoose module options
+   * @returns {MongooseModuleOptions} - Opciones de configuración para Mongoose.
    */
   createMongooseOptions(): MongooseModuleOptions {
     return {
